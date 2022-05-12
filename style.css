@@ -8,6 +8,7 @@ body {
 
 
 .video-container {
+  position: relative;
   width: 80%;
   max-width: 1000px;
   display: flex;
@@ -17,4 +18,21 @@ body {
 
 video {
   width: 100%;
+}
+
+.video-controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+.video-container:hover .video-controls-container,
+.video-container:focus-within .video-controls-container,
+.video-container.paused .video-controls-container {
+  opacity: 1;
 }
