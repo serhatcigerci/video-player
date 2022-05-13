@@ -35,7 +35,7 @@ function togglefullScreen() {
 }
 
 function toggleminiPlayer() {
-  if (videoContainer.classList.contains('miniPlayer')) {
+  if (videoContainer.classList.contains('mini-player')) {
     document.exitPictureInPicture()
   } else {
     video.requestPictureInPicture()
@@ -44,6 +44,15 @@ function toggleminiPlayer() {
 document.addEventListener('fullscreenchange', () => {
   videoContainer.classList.toggle('full-screen', document.fullscreenElement)
 })
+
+video.addEventListener('enterpictureinpicture', () => {
+  videoContainer.classList.add('mini-player')
+})
+
+video.addEventListener('leavepictureinpicture', () => {
+  videoContainer.classList.remove('mini-player')
+})
+
 video.addEventListener('play', () => {
   videoContainer.classList.remove('paused')
 })
