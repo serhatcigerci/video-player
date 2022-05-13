@@ -1,8 +1,9 @@
 const playPauseBtn = document.querySelector('.play-pause-btn')
+const theaterBtn = document.querySelector('.theater-btn')
+const fullScreenBtn = document.querySelector('.full-screen-btn')
+const miniPlayerBtn = document.querySelector('.mini-player-btn')
 const video = document.querySelector('video')
 const videoContainer = document.querySelector('.video-container')
-playPauseBtn.addEventListener('click', togglePlay)
-video.addEventListener('click', togglePlay)
 
 document.addEventListener('keydown', e => {
   switch (e.key.toLowerCase()) {
@@ -13,8 +14,24 @@ document.addEventListener('keydown', e => {
   }
 })
 
+theaterBtn.addEventListener('click', toggleTheater)
+fullScreenBtn.addEventListener('click', togglefullScreen)
+miniPlayerBtn.addEventListener('click', toggleminiPlayer)
+
 function togglePlay() {
   video.paused ? video.play() : video.pause()
+}
+
+function toggleTheater() {
+  videoContainer.classList.toggle('theater')
+}
+
+function togglefullScreen() {
+
+}
+
+function toggleminiPlayer() {
+
 }
 
 video.addEventListener('play', () => {
@@ -24,3 +41,6 @@ video.addEventListener('play', () => {
 video.addEventListener('pause', () => {
   videoContainer.classList.add('paused')
 })
+
+playPauseBtn.addEventListener('click', togglePlay)
+video.addEventListener('click', togglePlay)
