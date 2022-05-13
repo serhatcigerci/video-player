@@ -27,13 +27,19 @@ function toggleTheater() {
 }
 
 function togglefullScreen() {
-
+  if (document.fullscreenElement === null) {
+    videoContainer.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
 }
 
 function toggleminiPlayer() {
 
 }
-
+document.addEventListener('fullscreenchange', () => {
+  videoContainer.classList.toggle('full-screen', document.fullscreenElement)
+})
 video.addEventListener('play', () => {
   videoContainer.classList.remove('paused')
 })
