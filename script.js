@@ -35,7 +35,11 @@ function togglefullScreen() {
 }
 
 function toggleminiPlayer() {
-
+  if (videoContainer.classList.contains('miniPlayer')) {
+    document.exitPictureInPicture()
+  } else {
+    video.requestPictureInPicture()
+  }
 }
 document.addEventListener('fullscreenchange', () => {
   videoContainer.classList.toggle('full-screen', document.fullscreenElement)
