@@ -28,6 +28,7 @@ document.addEventListener('keydown', e => {
   }
 })
 
+
 theaterBtn.addEventListener('click', toggleTheater)
 fullScreenBtn.addEventListener('click', togglefullScreen)
 miniPlayerBtn.addEventListener('click', toggleminiPlayer)
