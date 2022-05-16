@@ -110,3 +110,18 @@ video {
 .video-container:not(.full-screen) .close {
   display: none;
 }
+
+.volume-high-icon, .volume-low-icon, .volume-muted-icon {
+  display: none;
+}
+
+
+.video-container[data-volume-level='high'] .volume-high-icon {
+  display: block;
+}
+.video-container[data-volume-level='low'] .volume-low-icon {
+  display: block;
+}
+.video-container[data-volume-level='muted'] .volume-muted-icon {
+  display: block;
+}
