@@ -3,9 +3,31 @@ const theaterBtn = document.querySelector('.theater-btn')
 const fullScreenBtn = document.querySelector('.full-screen-btn')
 const miniPlayerBtn = document.querySelector('.mini-player-btn')
 const video = document.querySelector('video')
+const currentTimeElem = document.querySelector('.current-time')
+const totalTimeElem = document.querySelector('.total-time')
 const muteBtn = document.querySelector('.mute-btn')
 const volumeSlider = document.querySelector('.volume-slider')
 const videoContainer = document.querySelector('.video-container')
+
+video.addEventListener('loadeddata', () => {
+  totalTimeElem.textContent = formatDuration(video.duration)
+})
+
+const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
+  minimumIntegerDigits: 2,
+})
+function formatDuration(time) {
+  const seconds = Math.floor(time % 60)
+  const minutes = Math.floor(time / 60) % 60
+  const hours = Math.floor(time / 3600)
+  if (hours === 0) {
+    return `${minutes}:${leadingZeroFormatter.format(seconds)}`
+  } else {
+    return `${hours}:${leadingZeroFormatter.format(
+      minutes
+    )}:${leadingZeroFormatter.format(seconds)}`
+  }
+}
 
 document.addEventListener('keydown', e => {
   const tagName = document.activeElement.tagName.toLowerCase()
