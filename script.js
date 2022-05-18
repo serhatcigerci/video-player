@@ -13,6 +13,10 @@ video.addEventListener('loadeddata', () => {
   totalTimeElem.textContent = formatDuration(video.duration)
 })
 
+video.addEventListener('timeupdate', () => {
+  currentTimeElem.textContent = formatDuration(video.currentTime)
+})
+
 const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
   minimumIntegerDigits: 2,
 })
