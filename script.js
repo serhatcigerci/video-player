@@ -6,8 +6,18 @@ const video = document.querySelector('video')
 const currentTimeElem = document.querySelector('.current-time')
 const totalTimeElem = document.querySelector('.total-time')
 const muteBtn = document.querySelector('.mute-btn')
+const speedBtn = document.querySelector('.speed-btn')
 const volumeSlider = document.querySelector('.volume-slider')
 const videoContainer = document.querySelector('.video-container')
+
+speedBtn.addEventListener('click', changeSpeed)
+
+function changeSpeed() {
+  let newPlaybackRate = video.playbackRate + 0.25
+  if(newPlaybackRate > 2) newPlaybackRate = 0.25
+  video.playbackRate = newPlaybackRate
+  speedBtn.textContent = `${newPlaybackRate}x`
+}
 
 video.addEventListener('loadeddata', () => {
   totalTimeElem.textContent = formatDuration(video.duration)
