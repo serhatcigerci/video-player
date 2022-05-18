@@ -56,6 +56,14 @@ document.addEventListener('keydown', e => {
         case 'm':
           toggleMute()
           break
+        case 'j':
+        case 'arrowleft':
+          skip(-5)
+          break
+        case 'l':
+        case 'arrowright':
+          skip(5)
+          break
   }
 })
 
@@ -87,6 +95,10 @@ video.addEventListener('volumechange', () => {
 theaterBtn.addEventListener('click', toggleTheater)
 fullScreenBtn.addEventListener('click', togglefullScreen)
 miniPlayerBtn.addEventListener('click', toggleminiPlayer)
+
+function skip(duration) {
+  video.currentTime += duration 
+}
 
 function togglePlay() {
   video.paused ? video.play() : video.pause()
