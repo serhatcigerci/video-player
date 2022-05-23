@@ -154,3 +154,23 @@ video {
   display: flex;
   width: 50px;
 }
+
+.timeline-container {
+  height: 7px;
+  margin-inline: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.timeline {
+  background-color: rgba(100, 100, 100, 0.5);
+  height: 3px;
+  width: 100%;
+  position: relative;
+}
+
+.timeline-container:hover .timeline{
+  height: 100%;
+}
+
