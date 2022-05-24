@@ -9,8 +9,17 @@ const muteBtn = document.querySelector('.mute-btn')
 const speedBtn = document.querySelector('.speed-btn')
 const volumeSlider = document.querySelector('.volume-slider')
 const videoContainer = document.querySelector('.video-container')
+const timelineContainer = document.querySelector('.timeline-container')
 const previewImg = document.querySelector('.preview-img')
 const thumbnailImg = document.querySelector('.thumbnail-img')
+
+timelineContainer.addEventListener('mousemove', handleTimelineUpdate)
+
+function handleTimelineUpdate(e) {
+  const rect = timelineContainer.getBoundingClientRect()
+  const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+  const previewImgNumber = Math.max(1, Math.floor())
+}
 
 speedBtn.addEventListener('click', changeSpeed)
 
