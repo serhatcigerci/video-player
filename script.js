@@ -9,6 +9,8 @@ const muteBtn = document.querySelector('.mute-btn')
 const speedBtn = document.querySelector('.speed-btn')
 const volumeSlider = document.querySelector('.volume-slider')
 const videoContainer = document.querySelector('.video-container')
+const previewImg = document.querySelector('.preview-img')
+const thumbnailImg = document.querySelector('.thumbnail-img')
 
 speedBtn.addEventListener('click', changeSpeed)
 
