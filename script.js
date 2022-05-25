@@ -22,6 +22,13 @@ function handleTimelineUpdate(e) {
   const previewImgSrc = `assets/previewImages/preview${previewImgNumber}.jpg`
   previewImg.src = previewImgSrc
   timelineContainer.style.setProperty('--preview-position', percent)
+
+  if (isScrubbing) {
+    e.preventDefault()
+    thumbnailImg.src = previewImgSrc
+    timelineContainer.style.setProperty('--progress-position', percent)
+
+  }
 }
 
 speedBtn.addEventListener('click', changeSpeed)
@@ -39,6 +46,9 @@ video.addEventListener('loadeddata', () => {
 
 video.addEventListener('timeupdate', () => {
   currentTimeElem.textContent = formatDuration(video.currentTime)
+  const percent = video.currentTime / video.duration
+  timelineContainer.style.setProperty('--progress-position', percent)
+
 })
 
 const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
